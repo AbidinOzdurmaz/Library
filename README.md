@@ -16,3 +16,5 @@ tablolarınız her seferinde yeniden oluşmaz.
 Getter setter metotlarını lombok yardımıyla oluşturdum. Intellij Idea 'a da lombok'u etkinleştirmesi zor değil fakat
 Eclipse ve Spring Tool Suite de lombok'u etkinleştirmek biraz uğraştırabilir. 
 Eğer çözemezseniz tüm sınıfların getter setter ve boş contructer larını eklemeniz gerekir.
+
+Projenin çalıştırıldıktan sonraki hali ana dizindeki kütüphane.mp4 dosyasından görebilirsiniz.
