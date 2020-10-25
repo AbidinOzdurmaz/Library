@@ -1,0 +1,73 @@
+<!doctype html>
+<html xmlns:th="http://www.thymelaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <title>Kütüphane</title>
+
+</head>
+<body>
+<div class="topnav">
+    <a class="active" href="/">Anasayfa</a>
+    <a href="/author">Yazarlar</a>
+    <a href="/publisher">Yayınevleri</a>
+</div>
+<div class="container">
+
+    <p class="my-5">
+        <a href="/addbook" class="btn btn-primary"><i
+                class="fas fa-user-plus ml-2"> Kitap Ekle</i></a>
+    </p>
+    <div class="form-group col-12">
+        <form action="#" th:action="@{/}" th:object="${search}" method="get">
+
+            <label for="search" class="col-form-label">Arama : </label> <input type="text" id="searchInput" th:field="*{search}" class="col-8">
+            <select  id="search" th:field="*{type}" >
+                <option th:each="s : ${searchTypes}" th:value="${s}" th:text="${s}"></option>
+            </select>
+            <input type="submit" class="btn btn-primary" value="Ara">
+        </form>
+
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+
+        <div class="card-block">
+
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Kitap Adı</th>
+                    <th>Yazar</th>
+                    <th>Yayınevi</th>
+
+                </tr>
+
+                </thead>
+                <tr th:each="bookDetail : ${bookDetails}">
+                    <td th:text="${bookDetail.name}"></td>
+                    <td th:text="${bookDetail.authorName}"></td>
+                    <td th:text="${bookDetail.publisherName}"></td>
+                    <td><a th:href="@{/detail/{id}(id=${bookDetail.id})}" class="btn btn-primary">Kitap Detay</a></td>
+                    <td><a th:href="@{/edit/{id}(id=${bookDetail.id})}" class="btn btn-primary">Güncelle</i></a></td>
+                    <td><a th:href="@{/delete/{id}(id=${bookDetail.id})}" class="btn btn-danger">Sil</a></td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+</body>
+</html>
