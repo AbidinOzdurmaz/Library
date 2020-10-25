@@ -12,3 +12,7 @@ Bir de username ve password değerlerini kendi veritabanı bilgilerine göre de�
 Oluşturduğunuz veritabanına herhangi bir tablo eklemenize gerek yok bunu jpa bizim için yapacaktır.
 Fakat bir kere çalıştıktan sonra application.yml dosyasında ki ddl-auto kısmını create den update yaparsanız
 tablolarınız her seferinde yeniden oluşmaz.
+
+Getter setter metotlarını lombok yardımıyla oluşturdum. Intellij Idea 'a da lombok'u etkinleştirmesi zor değil fakat
+Eclipse ve Spring Tool Suite de lombok'u etkinleştirmek biraz uğraştırabilir. 
+Eğer çözemezseniz tüm sınıfların getter setter ve boş contructer larını eklemeniz gerekir.
